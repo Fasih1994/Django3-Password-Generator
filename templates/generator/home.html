@@ -1,0 +1,32 @@
+{% extends 'generator/base.html' %}
+
+
+{% block content %}
+<div class="container text-center">
+    <h2>Welcome</h2>
+    <p>This is the home Page</p>
+    <form action=" {% url 'password' %} ">
+        <select name="length">
+
+            {% for option in options %}
+
+            {% if option == 12 %}
+            <option value="{{option}}" selected='selected'>{{option}}</option>
+            {% else %}
+            <option value="{{option}}">{{option}}</option>
+            {% endif %}
+
+            {% endfor %}
+
+        </select>
+        <br>
+        <input type="checkbox" name="uppercase" id=""> Uppercase
+        <br>
+        <input type="checkbox" name="numbers" id=""> Numbers
+        <br>
+        <input type="checkbox" name="special" id=""> Special Charactor
+        <br>
+        <input type="submit" value="Generate Password" class="btn btn-primary">
+    </form>
+</div>
+{% endblock content %}
